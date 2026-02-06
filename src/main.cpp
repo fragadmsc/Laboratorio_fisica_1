@@ -6,10 +6,9 @@
 #include <led.h>
 #include <prot.h>
 
-
 led_strip pixels(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
 mpu_sensor mpu;
-
+ball_class ball;
 
 void setup() {
 
@@ -24,21 +23,22 @@ void setup() {
     Serial.println("Failed to find MPU6050 chip");
     while(true) {delay(100);} 
   } 
+
+  //BALL
 }
 
 void loop() {
 
+  //get data from the sensor
+  sensors_event_t acc, gyro;
+  mpu.getEvent(&acc, &gyro, nullptr);
 
-  sensors_event_t a, g, temp;
-  mpu.getEvent(&a, &g, &temp);
-
-  Serial.println(a.acceleration.z);
-
-  delay(10);
-
-  int led_number = ceil(25 + a.acceleration.z*2);
-  pixels.clear();
-  pixels.setPixelColor(led_number, 0xff0000);
+  //atualize the ball position
+  ball.atualize(acc.acceleration.z);
   
-  pixels.show();
+  //get the led referent to the current position and light it
+  show_unique_led(position_to_led(ball.get_position()), pixels);
+
+  //delay
+  delay(DELAY);
 }
