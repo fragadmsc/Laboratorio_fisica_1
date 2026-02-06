@@ -5,6 +5,7 @@
 #include <Adafruit_Sensor.h>
 #include <Wire.h>
 #include <led.h>
+#include <kinematics.h>
 
 #define DELAY 10 //the delay beetween measures of the sensor, in ms
 

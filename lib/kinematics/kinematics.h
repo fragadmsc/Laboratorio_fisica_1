@@ -11,7 +11,6 @@ class ball_class {
 
     float position, velocity, acceleration;
 
-
     public:
 
     void atualize(float new_acceleration);
