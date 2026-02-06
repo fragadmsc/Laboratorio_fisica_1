@@ -4,4 +4,4 @@ O repositório é gerenciado por mim, Lucas Fraga Damasceno, e os outros integra
 
 O projeto consiste em utilizar um sensor MPU6050 para medir a gravidade e utilizar conceitos de cinemática para prever a posição e uma bolinha em um tubo. A posição da bolinha é representada por LEDs em uma fita endereçável.
 
-O projeto é inteiramente em c++.
+O projeto é inteiramente em C++.
