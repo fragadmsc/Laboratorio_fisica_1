@@ -1,10 +1,8 @@
 #pragma once
 
-#include "prot.h"
+#include <prot.h>
 
-const float COEF_OF_RESTITUTION = 0.5F; //the coefficient of restitution of the ball and the bottom, adimentional
-const float TIME = DELAY/1000.0F; //the time beetween measurements from the sensor, in seconds
-const float BAR_SIZE = 1.0F; //size of the bar, in meters
+
 
 class ball_class {
     private:
