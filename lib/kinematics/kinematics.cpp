@@ -1,4 +1,4 @@
-#include "kinematics.h"
+#include <kinematics.h>
 
 void ball_class::atualize(float new_acceleration) {
     //atualizes the position, velocity and acceleration of the ball, given the new acceleration
@@ -9,10 +9,10 @@ void ball_class::atualize(float new_acceleration) {
         //invert the velocity of the ball
         //put the ball in the correct range again
         position = BAR_SIZE;
-        velocity = -velocity;
+        velocity = -velocity*COEF_OF_RESTITUTION;
     } else if(position < 0) {
         position = 0;
-        velocity = -velocity;
+        velocity = -velocity*COEF_OF_RESTITUTION;
     }
 }
 

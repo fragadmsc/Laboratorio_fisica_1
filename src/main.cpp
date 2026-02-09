@@ -20,18 +20,23 @@ void setup() {
 
   //MPU
   if (!initialize_mpu(mpu)) {
-    Serial.println("Failed to find MPU6050 chip");
-    while(true) {delay(100);} 
+    while(true) {
+      Serial.println("Failed to find MPU6050 chip");
+      delay(100);
+    } 
   } 
 
   //BALL
 }
 
 void loop() {
-
   //get data from the sensor
-  sensors_event_t acc, gyro;
-  mpu.getEvent(&acc, &gyro, nullptr);
+  sensors_event_t acc, gyro, temp;
+  if(!mpu.getEvent(&acc, &gyro, &temp)) {
+    Serial.println("uncessefull reading");
+  }
+
+  Serial.println(acc.acceleration.z);
 
   //atualize the ball position
   ball.atualize(acc.acceleration.z);
