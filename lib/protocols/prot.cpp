@@ -31,3 +31,23 @@ bool initialize_serial(HardwareSerial& serial){
     return 0;
 }
 
+void button_class::atualize() {
+    int sum = 0;
+    for(short int i = 0; i < NUM_READS; i++) {
+        sum += buffer[i];
+    }
+    if(sum >= NUM_READS*MAX_ANALOG_READ - TOLERANCE_ANALOG_READ) {
+        if(prev == 0) cnt++;
+        prev = 1;
+    } else {
+        prev = 0;
+    }
+}
+
+int button_class::get_cnt() {
+    return cnt;
+}
+
+void button_class::read_buffer(int position, int value) {
+    buffer[position] = value;
+}
