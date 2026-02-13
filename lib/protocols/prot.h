@@ -32,6 +32,7 @@ bool initialize_serial(HardwareSerial& serial);
 
 
 void show_unique_led(int led, led_strip& strip, long long color);
+void show_two_leds(led_strip& strip, int led1,  long long color1, int led2,  long long color2);
 int position_to_led(float position);
 
 class button_class {

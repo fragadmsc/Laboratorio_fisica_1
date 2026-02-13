@@ -33,3 +33,9 @@ ball_class::ball_class() {
     velocity = 0;
     acceleration = 0;
 }
+
+ball_class::ball_class(float p, float v, float a) {
+    position = p;
+    velocity = v;
+    acceleration = a;
+}

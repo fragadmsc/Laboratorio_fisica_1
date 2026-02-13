@@ -2,8 +2,6 @@
 #include <Arduino.h>
 
 //Personal librarires
-#include <kinematics.h>
-#include <led.h>
 #include <prot.h>
 #include <mode.h>
 
@@ -47,7 +45,7 @@ void loop() {
       mode1(mpu, pixels, button);
       break;
     case 2:
-      mode2();
+      mode2(pixels, button);
       break;
     case 3:
       mode3();

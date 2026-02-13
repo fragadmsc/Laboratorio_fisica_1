@@ -3,13 +3,12 @@
 #include <prot.h>
 
 class ball_class {
-    private:
+    public:
 
     float position, velocity, acceleration;
 
-    public:
-
     ball_class();
+    ball_class(float p, float v, float a);
     void atualize(float new_acceleration);
     void initialize();
 

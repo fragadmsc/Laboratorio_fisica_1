@@ -70,3 +70,11 @@ void show_unique_led(int led, led_strip& strip, long long color) {
     strip.setPixelColor(led, color);
     strip.show();
 }
+
+
+void show_two_leds(led_strip& strip, int led1,  long long color1, int led2,  long long color2) {
+    strip.clear();
+    strip.setPixelColor(led1, color1);
+    strip.setPixelColor(led2, color2);
+    strip.show();
+}
