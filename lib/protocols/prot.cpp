@@ -22,16 +22,20 @@ bool initialize_leds(led_strip& pixels){
     pixels.begin();
     pixels.clear();
     pixels.show();
-    return 0;
+    return true;
 }
 
 bool initialize_serial(HardwareSerial& serial){
     //returns true if initializations was successfull and false if not
     serial.begin(115200);
-    return 0;
+    return true;
 }
 
 void button_class::atualize() {
+    for(int i = 0; i < NUM_READS; i++) {
+        read_buffer(i, analogRead(BUTTON_PIN));
+        delay(DELAY/NUM_READS);
+    }
     int sum = 0;
     for(short int i = 0; i < NUM_READS; i++) {
         sum += buffer[i];
