@@ -48,8 +48,8 @@ void button_class::atualize() {
     }
 }
 
-int button_class::get_cnt() {
-    return cnt;
+int button_class::get_mode() {
+    return cnt = cnt%NUM_MODES;
 }
 
 void button_class::read_buffer(int position, int value) {

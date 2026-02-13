@@ -4,7 +4,7 @@ void mode0(mpu_sensor& mpu, led_strip& pixels, button_class& btn) {
     //This mode is the second main mode, it is basically the ball.
     ball_class ball;
 
-    while(btn.get_cnt() == 1) {
+    while(btn.get_mode() == 0) {
         btn.atualize();
         //get data from the sensor
         sensors_event_t acc, gyro, temp;
@@ -26,7 +26,7 @@ void mode1(mpu_sensor& mpu, led_strip& pixels, button_class& btn) {
     //This mode is the second main mode, it is basically the ball, but as a bubble.
     ball_class ball;
 
-    while(btn.get_cnt() == 1) {
+    while(btn.get_mode() == 1) {
         btn.atualize();
         //get data from the sensor
         sensors_event_t acc, gyro, temp;
@@ -36,7 +36,7 @@ void mode1(mpu_sensor& mpu, led_strip& pixels, button_class& btn) {
     
     
         //atualize the ball position
-        ball.atualize(-acc.acceleration.y);
+        ball.atualize(acc.acceleration.y);
     
         //get the led referent to the current position and light it
         show_unique_led(position_to_led(ball.get_position()), pixels);

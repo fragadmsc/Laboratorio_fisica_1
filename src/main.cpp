@@ -14,7 +14,6 @@ mpu_sensor mpu;
 button_class button;
 
 void setup() {
-
   //SERIAL
   initialize_serial(Serial);
 
@@ -37,10 +36,10 @@ void loop() {
 
   if(DEBUG) {
     Serial.println("------------");
-    Serial.println(button.get_cnt());
+    Serial.println(button.get_mode());
   }
 
-  switch(button.get_cnt()%NUM_MODES) {
+  switch(button.get_mode()) {
     case 0:
       mode0(mpu, pixels, button);
       break;

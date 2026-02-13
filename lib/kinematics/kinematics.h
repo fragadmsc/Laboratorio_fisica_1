@@ -11,6 +11,7 @@ class ball_class {
 
     public:
 
+    ball_class();
     void atualize(float new_acceleration);
     void initialize();
 

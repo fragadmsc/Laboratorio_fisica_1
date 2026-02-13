@@ -28,7 +28,7 @@ float ball_class::get_acceleration() {
     return acceleration;
 }
 
-void ball_class::initialize() {
+ball_class::ball_class() {
     position = 0;
     velocity = 0;
     acceleration = 0;

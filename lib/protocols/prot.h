@@ -35,7 +35,7 @@ class button_class {
 
     public:
     void initialize();
-    int get_cnt();
+    int get_mode();
     void read_buffer(int position, int value);
     void atualize();
 };
