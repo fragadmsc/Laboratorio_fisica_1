@@ -34,6 +34,7 @@ class button_class {
     int buffer[NUM_READS];
 
     public:
+    void initialize();
     int get_cnt();
     void read_buffer(int position, int value);
     void atualize();

@@ -12,7 +12,8 @@ class ball_class {
     public:
 
     void atualize(float new_acceleration);
-    
+    void initialize();
+
     float get_position();
     float get_velocity();
     float get_acceleration();

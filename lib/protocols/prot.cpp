@@ -51,3 +51,7 @@ int button_class::get_cnt() {
 void button_class::read_buffer(int position, int value) {
     buffer[position] = value;
 }
+
+void button_class::initialize() {
+    pinMode(BUTTON_PIN, INPUT);
+}

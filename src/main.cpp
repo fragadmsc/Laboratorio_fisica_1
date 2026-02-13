@@ -5,12 +5,12 @@
 #include <kinematics.h>
 #include <led.h>
 #include <prot.h>
+#include <mode.h>
 
 led_strip pixels(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
 mpu_sensor mpu;
 ball_class ball;
 button_class button;
-int cnt = 0, prev = 0;
 
 void setup() {
 
@@ -29,9 +29,10 @@ void setup() {
   }
 
   //BALL
+  ball.initialize();
 
   //BUTTON
-  pinMode(BUTTON_PIN, INPUT);
+  button.initialize();
 }
 
 void loop() {
@@ -43,6 +44,21 @@ void loop() {
   }
   button.atualize();
 
+
+  switch(button.get_cnt()) {
+    case 0:
+      mode0();
+    case 1:
+      mode1();
+      break;
+    case 2:
+      mode1();
+      break;
+    case 3:
+      mode1();
+      break;
+  }
+
   //get data from the sensor
   sensors_event_t acc, gyro, temp;
   if(!mpu.getEvent(&acc, &gyro, &temp)) {
@@ -50,21 +66,10 @@ void loop() {
   }
 
 
-  //#DEBUG
-  Serial.println("----------------------");
-  Serial.println(acc.acceleration.x);
-  Serial.println(acc.acceleration.y);
-  Serial.println(acc.acceleration.z);
-  Serial.println(acc.acceleration.x*acc.acceleration.x + acc.acceleration.y*acc.acceleration.y + acc.acceleration.z*acc.acceleration.z);
-  Serial.println(cnt);
-  Serial.println(analogRead(BUTTON_PIN));
-
   //atualize the ball position
   ball.atualize(acc.acceleration.y);
   
   //get the led referent to the current position and light it
   show_unique_led(position_to_led(ball.get_position()), pixels);
 
-  //delay
-  //delay(DELAY);
 }

@@ -27,3 +27,7 @@ float ball_class::get_velocity() {
 float ball_class::get_acceleration() {
     return acceleration;
 }
+
+void ball_class::initialize() {
+    
+}
