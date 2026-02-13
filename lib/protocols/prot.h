@@ -12,7 +12,7 @@ const int BUTTON_PIN = A0; // the pin of the button
 const int NUM_READS = 20; //num reads must divide delay
 const int MAX_ANALOG_READ = 1023; // maximum value of the analog read
 const int TOLERANCE_ANALOG_READ = 10; //tolerance to the analog read
-
+const int NUM_MODES = 4 - 1;
 
 const float COEF_OF_RESTITUTION = 0.5F; //the coefficient of restitution of the ball and the bottom, adimentional
 const float TIME = 1.0F*DELAY/1000.0F; //the time beetween measurements from the sensor, in seconds

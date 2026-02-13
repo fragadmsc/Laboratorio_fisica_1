@@ -7,6 +7,8 @@
 #include <prot.h>
 #include <mode.h>
 
+const int DEBUG = 1;
+
 led_strip pixels(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
 mpu_sensor mpu;
 ball_class ball;
@@ -39,15 +41,20 @@ void loop() {
 
   //See if the button was pressed
   for(int i = 0; i < NUM_READS; i++) {
-    button.read_buffer(analogRead(BUTTON_PIN), i);
+    button.read_buffer(i, analogRead(BUTTON_PIN));
     delay(DELAY/NUM_READS);
   }
   button.atualize();
 
+  if(DEBUG) {
+    Serial.println("------------");
+    Serial.println(button.get_cnt());
+  }
 
-  switch(button.get_cnt()) {
+  switch(button.get_cnt()%NUM_MODES) {
     case 0:
       mode0(mpu, pixels, ball);
+      break;
     case 1:
       mode1();
       break;
