@@ -66,12 +66,14 @@ void mode2(led_strip& pixels, button_class& btn){
 
 void mode3(led_strip& pixels, button_class& btn ){
     //This mode shows all of the LEDs turned ON
+    
+    pixels.clear();
+    for(int i = 0; i < NUM_LEDS; i++) {
+        pixels.setPixelColor(i, GREEN);
+    }
+    pixels.show();
+
     while(btn.get_mode() == 3) {
         btn.atualize();
-        pixels.clear();
-        for(int i = 0; i < NUM_LEDS; i++) {
-            pixels.setPixelColor(i, GREEN);
-        }
-        pixels.show();
     }
 }

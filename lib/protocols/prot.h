@@ -11,7 +11,7 @@ const int NUM_LEDS = 60; // the number of leds
 const int BUTTON_PIN = A0; // the pin of the button
 const int NUM_READS = 20; //num reads must divide delay
 const int MAX_ANALOG_READ = 1023; // maximum value of the analog read
-const int TOLERANCE_ANALOG_READ = 10; //tolerance to the analog read
+const int TOLERANCE_ANALOG_READ = 20; //tolerance to the analog read
 const int NUM_MODES = 4;
 
 const float TIME = 1.0F*DELAY/1000.0F; //the time beetween measurements from the sensor, in seconds
