@@ -1,9 +1,9 @@
 #include <mode.h>
 
 void mode0(mpu_sensor& mpu, led_strip& pixels, button_class& btn) {
-    //This mode is the second main mode, it is basically the ball.
+    //This mode is the main mode, it is basically the ball.
     ball_class ball;
-
+    COEF_OF_RESTITUTION = 0.5;
     while(btn.get_mode() == 0) {
         btn.atualize();
         //get data from the sensor
@@ -25,7 +25,8 @@ void mode0(mpu_sensor& mpu, led_strip& pixels, button_class& btn) {
 void mode1(mpu_sensor& mpu, led_strip& pixels, button_class& btn) {
     //This mode is the second main mode, it is basically the ball, but as a bubble.
     ball_class ball;
-
+    COEF_OF_RESTITUTION = 0.1;
+    float COEF_OF_ATRICT = 0.5;
     while(btn.get_mode() == 1) {
         btn.atualize();
         //get data from the sensor
@@ -36,7 +37,7 @@ void mode1(mpu_sensor& mpu, led_strip& pixels, button_class& btn) {
     
     
         //atualize the ball position
-        ball.atualize(acc.acceleration.y);
+        ball.atualize(acc.acceleration.y*COEF_OF_ATRICT);
     
         //get the led referent to the current position and light it
         show_unique_led(position_to_led(ball.get_position()), pixels, BLUE);

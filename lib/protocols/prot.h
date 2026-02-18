@@ -14,10 +14,11 @@ const int MAX_ANALOG_READ = 1023; // maximum value of the analog read
 const int TOLERANCE_ANALOG_READ = 10; //tolerance to the analog read
 const int NUM_MODES = 4 - 1;
 
-const float COEF_OF_RESTITUTION = 0.5F; //the coefficient of restitution of the ball and the bottom, adimentional
 const float TIME = 1.0F*DELAY/1000.0F; //the time beetween measurements from the sensor, in seconds
 const float BAR_SIZE = 1.0F; //size of the bar, in meters
 const float EPSILON = 0.00001F;
+
+float COEF_OF_RESTITUTION; //the coefficient of restitution of the ball and the bottom, adimentional
 
 const long long RED = 0xFF0000;
 const long long BLUE = 0x0000FF;
