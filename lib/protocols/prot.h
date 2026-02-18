@@ -18,7 +18,10 @@ const float TIME = 1.0F*DELAY/1000.0F; //the time beetween measurements from the
 const float BAR_SIZE = 1.0F; //size of the bar, in meters
 const float EPSILON = 0.00001F;
 
-float COEF_OF_RESTITUTION; //the coefficient of restitution of the ball and the bottom, adimentional
+// ! inline indica ao compilador para tratar todas as definições como sendo uma só e ignora os erros de compilação, (ainda fica amarelo)
+// inline float COEF_OF_RESTITUTION;
+// ! extern indica para o compilador que a variavel existe em outro arquivo
+extern float COEF_OF_RESTITUTION; //the coefficient of restitution of the ball and the bottom, adimentional
 
 const long long RED = 0xFF0000;
 const long long BLUE = 0x0000FF;

@@ -6,6 +6,9 @@
 #include <mode.h>
 
 const int DEBUG = 1;
+// ! Para ressolver os erros de compilação (a biblioteca prot.h possui uma definição de variavel não constante que é definida toda vez que um arquivo .cpp a importa [#pragma once apenas implica que um mesmo arquivo .cpp lerá a biblioteca apenas uma vez])
+// ! Resolvemos isso com inline ou extern e definição em outro lugar. Escolhi a ultima com a definição no main.cpp
+float COEF_OF_RESTITUTION; //the coefficient of restitution of the ball and the bottom, adimentional
 
 led_strip pixels(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
 mpu_sensor mpu;
