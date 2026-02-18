@@ -46,11 +46,12 @@ void button_class::atualize() {
     } else {
         prev = 0;
     }
+    cnt %= NUM_MODES;
 
 }
 
 int button_class::get_mode() {
-    return cnt%NUM_MODES;
+    return cnt;
 }
 
 void button_class::read_buffer(int position, int value) {
